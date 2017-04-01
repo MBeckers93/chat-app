@@ -10,12 +10,26 @@ socket.on('disconnect', function () {
 
 socket.on('newMessage', function (message) {
 	console.log('newMessage', message);
-})
+	var li = jQuery('<li></li>');
+	li.text(`${message.from}: ${message.text}`);
 
-socket.on('welcomeMessage', function(message) {
-	console.log('welcomeMessage', message);
+	jQuery('#chatapp-messages').append(li);
 });
 
-socket.on('joinMessage', function(message) {
-	console.log('joinMessage', message);
+// socket.emit('createMessage', {
+// 	from: 'Frank',
+// 	text: 'Hi'
+// }, function (data) {
+// 	console.log('Got it', data);
+// });
+
+jQuery('#chatapp-form').on('submit', function(e) {
+	e.preventDefault();
+
+	socket.emit('createMessage', {
+		from: 'User',
+		text: jQuery('[name=chatapp-sendMessage]').val()
+	}, function () {
+
+	});
 });

@@ -3,10 +3,20 @@
 	<head>
 		<title></title>
 		<meta charset="utf-8">
-		<script src="/socket.io/socket.io.js"></script>
-		<script src="/js/index.js"></script>
 	</head>
 	<body>
 		<p>Welcome to the chat app</p>
+
+		<ul id="chatapp-messages" style="list-style-type: none; padding-left: 0;"></ul>
+
+		<form id="chatapp-form">
+			<input type="text" name="chatapp-sendMessage" placeholder="Type here your message.">
+			<button>Send</button>
+		</form>
+
+
+		<script src="/js/libs/jquery-3.2.0.min.js"></script>
+		<script src="/socket.io/socket.io.js"></script>
+		<script src="/js/index.js"></script>
 	</body>
 </html>
